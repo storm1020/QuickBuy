@@ -30,10 +30,25 @@ namespace QuickBuy.Dominio.Entidades
             LimparMensagensValidacao();
 
             if (!ItensPedido.Any())
-                AdicionarCritica("Pedido vazio, selecione itens para seu pedido!");
+                AdicionarCritica("Pedido está vazio, selecione itens para seu pedido!");
 
             if (string.IsNullOrEmpty(CEP))
-                AdicionarCritica("O campo CEP é obrigatório, por favor, informe-o!");
+                AdicionarCritica("Preenchimento - CEP obrigatório, por favor, informe-o!");
+
+            if (string.IsNullOrEmpty(Estado))
+                AdicionarCritica("Preenchimento - ESTADO obrigatório, por favor, informe-o!");
+
+            if (string.IsNullOrEmpty(Cidade))
+                AdicionarCritica("Preenchimento - CIDADE obrigatório, por favor, informe-o!");
+
+            if (string.IsNullOrEmpty(EnderecoCompleto))
+                AdicionarCritica("Preenchimento - ENDEREÇO COMPLETO é obrigatório, por favor, informe-o!");
+
+            if (string.IsNullOrEmpty(NumeroEndereco))
+                AdicionarCritica("Preenchimento - NÚMERO ENDEREÇO é obrigatório, por favor, informe-o!");
+
+            if (FormaPagamento.NaoFoiDefinido)
+                AdicionarCritica("Por favor, defina um tipo de pagamento!");
 
         }
     }

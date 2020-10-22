@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickBuy.Dominio.Entidades
 {
@@ -8,9 +9,9 @@ namespace QuickBuy.Dominio.Entidades
 
         public int Id { get; set; }
 
-        public int Email { get; set; }
+        public string Email { get; set; }
 
-        public int Senha { get; set; }
+        public string Senha { get; set; }
 
         public string Nome { get; set; }
 
@@ -23,7 +24,17 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new System.NotImplementedException();
+            if (!Email.Any())
+                AdicionarCritica("E-mail não informado, por favor, informe-o!");
+
+            if (!Senha.Any())
+                AdicionarCritica("Senha não informada, por favor, informe-a!");
+
+            if (!Nome.Any())
+                AdicionarCritica("Nome não informado, por favor, informe-o!");
+
+            if (!SobreNome.Any())
+                AdicionarCritica("Sobrenome não informado, por favor, informe-o!");
         }
     }
 }

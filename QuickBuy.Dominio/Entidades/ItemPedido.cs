@@ -12,7 +12,11 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (ProdutoId == 0)
+                AdicionarCritica("Não foi idêntificado qual a referência do produto.");
+
+            if (Quantidade == 0)
+                AdicionarCritica("Quantidade não informada.");
         }
     }
 }
