@@ -34,7 +34,7 @@ namespace QuickBuy.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            var connectionString = Configuration.GetConnectionString("MySqlConnection");
+            var connectionString = Configuration.GetConnectionString("QuickBuyDB");
             services.AddDbContext<QuickBuyContext>(option =>
                                                         option.UseMySql(connectionString,
                                                                             m => m.MigrationsAssembly("QuickBuy.Repositorio")));
