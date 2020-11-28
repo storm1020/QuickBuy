@@ -10,8 +10,12 @@ namespace QuickBuy.Dominio.Entidades
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
+
+        // Mapeamento da classe pai Usuario
+        // Id identificado como o Id que existe na classe Usuario
         public int UsuarioId { get; set; }
         public virtual Usuario Usuario { get; set; }
+
         public DateTime DataPrevisaoEntrega { get; set; }
         public string CEP { get; set; }
         public string Estado { get; set; }
@@ -21,9 +25,10 @@ namespace QuickBuy.Dominio.Entidades
         public int FormaPagamentoId { get; set; }
         public virtual FormaPagamento FormaPagamento { get; set; }
         /// <summary>
-        /// Pedido deve ter pelo menos um item de pedido,
+        /// Pedido deve ter um item de pedido,
         /// ou muitos itens pedidos.
         /// </summary>
+        public virtual int ItensPedidoId { get; set; }
         public virtual ICollection<ItemPedido> ItensPedido { get; set; }
 
         public override void Validate()

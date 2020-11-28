@@ -36,8 +36,7 @@ namespace QuickBuy.Repositorio.Config
                 .IsRequired()
                 .HasMaxLength(30);
 
-            // Pedido pode conter apenas uma Usuario
-            //builder.HasOne(p => p.Usuario);
+            builder.HasOne(p => p.FormaPagamento); // Pagamento deve ter uma forma de pagamento.
         }
     }
 }

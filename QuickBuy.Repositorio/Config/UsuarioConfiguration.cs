@@ -34,7 +34,7 @@ namespace QuickBuy.Repositorio.Config
 
             builder
                 .HasMany(u => u.Pedidos) // HasMany: Usuario tem muitos Pedidos.
-                .WithOne(p => p.Usuario); // WithOne: Pedido só pode conter apenas 1 Usuario.
+                .WithOne(p => p.Usuario); // WithOne: Pedido deve conter apenas 1 Usuario.
                 
         }
     }
