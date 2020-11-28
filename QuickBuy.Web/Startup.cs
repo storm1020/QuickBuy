@@ -34,6 +34,7 @@ namespace QuickBuy.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // Configuração que aponta a leitura do arquivo config, que contem a ConnectionString.
             var connectionString = Configuration.GetConnectionString("QuickBuyDB");
             services.AddDbContext<QuickBuyContext>(option =>
                                                         option.UseLazyLoadingProxies() // Permite carregamento automatico de relacionamento de tabelas.
