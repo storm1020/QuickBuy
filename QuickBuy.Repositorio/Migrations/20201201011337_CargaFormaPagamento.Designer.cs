@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuickBuy.Repositorio.Contexto;
 
 namespace QuickBuy.Repositorio.Migrations
 {
     [DbContext(typeof(QuickBuyContext))]
-    partial class QuickBuyContextModelSnapshot : ModelSnapshot
+    [Migration("20201201011337_CargaFormaPagamento")]
+    partial class CargaFormaPagamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,22 +99,6 @@ namespace QuickBuy.Repositorio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Descricao = "Video-game produzido pela empresa Sony, lançado em 2020.",
-                            Nome = "Playstation - 5",
-                            Preco = 5000m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Descricao = "Mixer de mão Mondial",
-                            Nome = "Mixer Mondial",
-                            Preco = 150m
-                        });
                 });
 
             modelBuilder.Entity("QuickBuy.Dominio.Entidades.Usuario", b =>
