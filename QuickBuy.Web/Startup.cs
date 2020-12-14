@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QuickBuy.Dominio.Contratos;
 using QuickBuy.Repositorio.Contexto;
+using QuickBuy.Repositorio.Repositorios;
 
 //Classe responsável por:
 //receber string de conexão do dbc.
@@ -40,6 +42,10 @@ namespace QuickBuy.Web
                                                         option.UseLazyLoadingProxies() // Permite carregamento automatico de relacionamento de tabelas.
                                                         .UseMySql(connectionString,
                                                                             m => m.MigrationsAssembly("QuickBuy.Repositorio")));
+
+            // Mapeamento de interface e classe concreta.
+            // Injeção de dependência
+            services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

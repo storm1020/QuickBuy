@@ -9,7 +9,6 @@ namespace QuickBuy.Repositorio.Repositorios
 {
     public class BaseRepositorio<TEntity> : IBaseRepositorio<TEntity> where TEntity : class
     {
-
         protected readonly QuickBuyContext QuickBuyContext;
 
         public BaseRepositorio(QuickBuyContext quickBuyContext)
